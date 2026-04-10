@@ -4,7 +4,7 @@
 // 	protoc        v7.34.1
 // source: test.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package pb
 
@@ -25,10 +25,10 @@ const (
 )
 
 type IP struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Address       string                 `protobuf:"bytes,1,opt,name=Address,proto3" json:"Address,omitempty"` // @gotags: valid:"ip" yaml:"ip" json:"overrided"
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state              protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Address string                 `protobuf:"bytes,1,opt,name=Address,proto3"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *IP) Reset() {
@@ -58,13 +58,13 @@ func (x *IP) ProtoReflect() protoreflect.Message {
 
 func (x *IP) GetAddress() string {
 	if x != nil {
-		return x.Address
+		return x.xxx_hidden_Address
 	}
 	return ""
 }
 
 func (x *IP) SetAddress(v string) {
-	x.Address = v
+	x.xxx_hidden_Address = v
 }
 
 type IP_builder struct {
@@ -77,25 +77,17 @@ func (b0 IP_builder) Build() *IP {
 	m0 := &IP{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Address = b.Address
+	x.xxx_hidden_Address = b.Address
 	return m0
 }
 
 type URL struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// below is an example where the line-specific comment should take precedence
-	// over the "doc" comment, which is known to be more free-form. On the
-	// resulting struct field, you should see `valid:"http|https"` added, not
-	// `valid:"-"`.
-	//
-	// @gotags: valid:"-"
-	Scheme string `protobuf:"bytes,1,opt,name=scheme,proto3" json:"scheme,omitempty"` // @gotags: valid:"http|https"
-	Url    string `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
-	// Test legacy field name.
-	// @inject_tags: valid:"nonzero"
-	Port          int32 `protobuf:"varint,3,opt,name=port,proto3" json:"port,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Scheme string                 `protobuf:"bytes,1,opt,name=scheme,proto3"`
+	xxx_hidden_Url    string                 `protobuf:"bytes,2,opt,name=url,proto3"`
+	xxx_hidden_Port   int32                  `protobuf:"varint,3,opt,name=port,proto3"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *URL) Reset() {
@@ -125,35 +117,35 @@ func (x *URL) ProtoReflect() protoreflect.Message {
 
 func (x *URL) GetScheme() string {
 	if x != nil {
-		return x.Scheme
+		return x.xxx_hidden_Scheme
 	}
 	return ""
 }
 
 func (x *URL) GetUrl() string {
 	if x != nil {
-		return x.Url
+		return x.xxx_hidden_Url
 	}
 	return ""
 }
 
 func (x *URL) GetPort() int32 {
 	if x != nil {
-		return x.Port
+		return x.xxx_hidden_Port
 	}
 	return 0
 }
 
 func (x *URL) SetScheme(v string) {
-	x.Scheme = v
+	x.xxx_hidden_Scheme = v
 }
 
 func (x *URL) SetUrl(v string) {
-	x.Url = v
+	x.xxx_hidden_Url = v
 }
 
 func (x *URL) SetPort(v int32) {
-	x.Port = v
+	x.xxx_hidden_Port = v
 }
 
 type URL_builder struct {
@@ -176,21 +168,18 @@ func (b0 URL_builder) Build() *URL {
 	m0 := &URL{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Scheme = b.Scheme
-	x.Url = b.Url
-	x.Port = b.Port
+	x.xxx_hidden_Scheme = b.Scheme
+	x.xxx_hidden_Url = b.Url
+	x.xxx_hidden_Port = b.Port
 	return m0
 }
 
 type Params struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// @gotags: validate:"omitempty"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// gets converted into XXX_Deprecated, for use with testing pre-v1.4.x protoc-gen-go
-	// functionality that exposes unknown fields as public.
-	XXX_Deprecated string `protobuf:"bytes,2,opt,name=XXX__deprecated,json=XXXDeprecated,proto3" json:"XXX__deprecated,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Id             string                 `protobuf:"bytes,1,opt,name=id,proto3"`
+	xxx_hidden_XXX_Deprecated string                 `protobuf:"bytes,2,opt,name=XXX__deprecated,json=XXXDeprecated,proto3"`
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
 }
 
 func (x *Params) Reset() {
@@ -220,24 +209,24 @@ func (x *Params) ProtoReflect() protoreflect.Message {
 
 func (x *Params) GetId() string {
 	if x != nil {
-		return x.Id
+		return x.xxx_hidden_Id
 	}
 	return ""
 }
 
 func (x *Params) GetXXX_Deprecated() string {
 	if x != nil {
-		return x.XXX_Deprecated
+		return x.xxx_hidden_XXX_Deprecated
 	}
 	return ""
 }
 
 func (x *Params) SetId(v string) {
-	x.Id = v
+	x.xxx_hidden_Id = v
 }
 
 func (x *Params) SetXXX_Deprecated(v string) {
-	x.XXX_Deprecated = v
+	x.xxx_hidden_XXX_Deprecated = v
 }
 
 type Params_builder struct {
@@ -254,19 +243,18 @@ func (b0 Params_builder) Build() *Params {
 	m0 := &Params{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Id = b.Id
-	x.XXX_Deprecated = b.XXX_Deprecated
+	x.xxx_hidden_Id = b.Id
+	x.xxx_hidden_XXX_Deprecated = b.XXX_Deprecated
 	return m0
 }
 
 type Record struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// @gotags: validate:"omitempty"
-	Id            string         `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	TestAny       *anypb.Any     `protobuf:"bytes,2,opt,name=test_any,json=testAny,proto3" json:"test_any,omitempty"`
-	TestEmpty     *emptypb.Empty `protobuf:"bytes,3,opt,name=test_empty,json=testEmpty,proto3" json:"test_empty,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Id        string                 `protobuf:"bytes,1,opt,name=id,proto3"`
+	xxx_hidden_TestAny   *anypb.Any             `protobuf:"bytes,2,opt,name=test_any,json=testAny,proto3"`
+	xxx_hidden_TestEmpty *emptypb.Empty         `protobuf:"bytes,3,opt,name=test_empty,json=testEmpty,proto3"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *Record) Reset() {
@@ -296,57 +284,57 @@ func (x *Record) ProtoReflect() protoreflect.Message {
 
 func (x *Record) GetId() string {
 	if x != nil {
-		return x.Id
+		return x.xxx_hidden_Id
 	}
 	return ""
 }
 
 func (x *Record) GetTestAny() *anypb.Any {
 	if x != nil {
-		return x.TestAny
+		return x.xxx_hidden_TestAny
 	}
 	return nil
 }
 
 func (x *Record) GetTestEmpty() *emptypb.Empty {
 	if x != nil {
-		return x.TestEmpty
+		return x.xxx_hidden_TestEmpty
 	}
 	return nil
 }
 
 func (x *Record) SetId(v string) {
-	x.Id = v
+	x.xxx_hidden_Id = v
 }
 
 func (x *Record) SetTestAny(v *anypb.Any) {
-	x.TestAny = v
+	x.xxx_hidden_TestAny = v
 }
 
 func (x *Record) SetTestEmpty(v *emptypb.Empty) {
-	x.TestEmpty = v
+	x.xxx_hidden_TestEmpty = v
 }
 
 func (x *Record) HasTestAny() bool {
 	if x == nil {
 		return false
 	}
-	return x.TestAny != nil
+	return x.xxx_hidden_TestAny != nil
 }
 
 func (x *Record) HasTestEmpty() bool {
 	if x == nil {
 		return false
 	}
-	return x.TestEmpty != nil
+	return x.xxx_hidden_TestEmpty != nil
 }
 
 func (x *Record) ClearTestAny() {
-	x.TestAny = nil
+	x.xxx_hidden_TestAny = nil
 }
 
 func (x *Record) ClearTestEmpty() {
-	x.TestEmpty = nil
+	x.xxx_hidden_TestEmpty = nil
 }
 
 type Record_builder struct {
@@ -362,23 +350,17 @@ func (b0 Record_builder) Build() *Record {
 	m0 := &Record{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Id = b.Id
-	x.TestAny = b.TestAny
-	x.TestEmpty = b.TestEmpty
+	x.xxx_hidden_Id = b.Id
+	x.xxx_hidden_TestAny = b.TestAny
+	x.xxx_hidden_TestEmpty = b.TestEmpty
 	return m0
 }
 
 type OneOfObject struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// @gotags: tag:"foo_bar"
-	//
-	// Types that are valid to be assigned to FooBar:
-	//
-	//	*OneOfObject_Foo
-	//	*OneOfObject_Bar
-	FooBar        isOneOfObject_FooBar `protobuf_oneof:"foo_bar"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_FooBar isOneOfObject_FooBar   `protobuf_oneof:"foo_bar"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *OneOfObject) Reset() {
@@ -406,16 +388,9 @@ func (x *OneOfObject) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *OneOfObject) GetFooBar() isOneOfObject_FooBar {
-	if x != nil {
-		return x.FooBar
-	}
-	return nil
-}
-
 func (x *OneOfObject) GetFoo() string {
 	if x != nil {
-		if x, ok := x.FooBar.(*OneOfObject_Foo); ok {
+		if x, ok := x.xxx_hidden_FooBar.(*oneOfObject_Foo); ok {
 			return x.Foo
 		}
 	}
@@ -424,7 +399,7 @@ func (x *OneOfObject) GetFoo() string {
 
 func (x *OneOfObject) GetBar() int64 {
 	if x != nil {
-		if x, ok := x.FooBar.(*OneOfObject_Bar); ok {
+		if x, ok := x.xxx_hidden_FooBar.(*oneOfObject_Bar); ok {
 			return x.Bar
 		}
 	}
@@ -432,25 +407,25 @@ func (x *OneOfObject) GetBar() int64 {
 }
 
 func (x *OneOfObject) SetFoo(v string) {
-	x.FooBar = &OneOfObject_Foo{v}
+	x.xxx_hidden_FooBar = &oneOfObject_Foo{v}
 }
 
 func (x *OneOfObject) SetBar(v int64) {
-	x.FooBar = &OneOfObject_Bar{v}
+	x.xxx_hidden_FooBar = &oneOfObject_Bar{v}
 }
 
 func (x *OneOfObject) HasFooBar() bool {
 	if x == nil {
 		return false
 	}
-	return x.FooBar != nil
+	return x.xxx_hidden_FooBar != nil
 }
 
 func (x *OneOfObject) HasFoo() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.FooBar.(*OneOfObject_Foo)
+	_, ok := x.xxx_hidden_FooBar.(*oneOfObject_Foo)
 	return ok
 }
 
@@ -458,23 +433,23 @@ func (x *OneOfObject) HasBar() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.FooBar.(*OneOfObject_Bar)
+	_, ok := x.xxx_hidden_FooBar.(*oneOfObject_Bar)
 	return ok
 }
 
 func (x *OneOfObject) ClearFooBar() {
-	x.FooBar = nil
+	x.xxx_hidden_FooBar = nil
 }
 
 func (x *OneOfObject) ClearFoo() {
-	if _, ok := x.FooBar.(*OneOfObject_Foo); ok {
-		x.FooBar = nil
+	if _, ok := x.xxx_hidden_FooBar.(*oneOfObject_Foo); ok {
+		x.xxx_hidden_FooBar = nil
 	}
 }
 
 func (x *OneOfObject) ClearBar() {
-	if _, ok := x.FooBar.(*OneOfObject_Bar); ok {
-		x.FooBar = nil
+	if _, ok := x.xxx_hidden_FooBar.(*oneOfObject_Bar); ok {
+		x.xxx_hidden_FooBar = nil
 	}
 }
 
@@ -486,10 +461,10 @@ func (x *OneOfObject) WhichFooBar() case_OneOfObject_FooBar {
 	if x == nil {
 		return OneOfObject_FooBar_not_set_case
 	}
-	switch x.FooBar.(type) {
-	case *OneOfObject_Foo:
+	switch x.xxx_hidden_FooBar.(type) {
+	case *oneOfObject_Foo:
 		return OneOfObject_Foo_case
-	case *OneOfObject_Bar:
+	case *oneOfObject_Bar:
 		return OneOfObject_Bar_case
 	default:
 		return OneOfObject_FooBar_not_set_case
@@ -501,12 +476,12 @@ type OneOfObject_builder struct {
 
 	// @gotags: tag:"foo_bar"
 
-	// Fields of oneof FooBar:
+	// Fields of oneof xxx_hidden_FooBar:
 	// @gotags: tag:"foo"
 	Foo *string
 	// @gotags: tag:"bar"
 	Bar *int64
-	// -- end of FooBar
+	// -- end of xxx_hidden_FooBar
 }
 
 func (b0 OneOfObject_builder) Build() *OneOfObject {
@@ -514,10 +489,10 @@ func (b0 OneOfObject_builder) Build() *OneOfObject {
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.Foo != nil {
-		x.FooBar = &OneOfObject_Foo{*b.Foo}
+		x.xxx_hidden_FooBar = &oneOfObject_Foo{*b.Foo}
 	}
 	if b.Bar != nil {
-		x.FooBar = &OneOfObject_Bar{*b.Bar}
+		x.xxx_hidden_FooBar = &oneOfObject_Bar{*b.Bar}
 	}
 	return m0
 }
@@ -536,19 +511,19 @@ type isOneOfObject_FooBar interface {
 	isOneOfObject_FooBar()
 }
 
-type OneOfObject_Foo struct {
+type oneOfObject_Foo struct {
 	// @gotags: tag:"foo"
 	Foo string `protobuf:"bytes,1,opt,name=foo,proto3,oneof"`
 }
 
-type OneOfObject_Bar struct {
+type oneOfObject_Bar struct {
 	// @gotags: tag:"bar"
 	Bar int64 `protobuf:"varint,2,opt,name=bar,proto3,oneof"`
 }
 
-func (*OneOfObject_Foo) isOneOfObject_FooBar() {}
+func (*oneOfObject_Foo) isOneOfObject_FooBar() {}
 
-func (*OneOfObject_Bar) isOneOfObject_FooBar() {}
+func (*oneOfObject_Bar) isOneOfObject_FooBar() {}
 
 var File_test_proto protoreflect.FileDescriptor
 
@@ -608,8 +583,8 @@ func file_test_proto_init() {
 		return
 	}
 	file_test_proto_msgTypes[4].OneofWrappers = []any{
-		(*OneOfObject_Foo)(nil),
-		(*OneOfObject_Bar)(nil),
+		(*oneOfObject_Foo)(nil),
+		(*oneOfObject_Bar)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
