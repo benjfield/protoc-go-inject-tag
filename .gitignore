@@ -24,3 +24,5 @@ _testmain.go
 *.prof
 
 **/vendor
+
+protoc-go-inject-tag
