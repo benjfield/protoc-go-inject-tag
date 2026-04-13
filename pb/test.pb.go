@@ -9,12 +9,13 @@
 package pb
 
 import (
+	reflect "reflect"
+	unsafe "unsafe"
+
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	anypb "google.golang.org/protobuf/types/known/anypb"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	reflect "reflect"
-	unsafe "unsafe"
 )
 
 const (
